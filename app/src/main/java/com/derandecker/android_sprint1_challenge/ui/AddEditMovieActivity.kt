@@ -36,6 +36,7 @@ class AddEditMovieActivity : AppCompatActivity() {
 
     fun loadMovieInfo (movie: Movie){
         et_movie_title.setText(movie.title)
+        checkbox_seen_movie.isChecked = movie.watched
     }
 
     fun createMovie(): Movie {
