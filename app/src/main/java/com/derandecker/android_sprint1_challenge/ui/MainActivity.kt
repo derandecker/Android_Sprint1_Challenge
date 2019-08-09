@@ -1,5 +1,6 @@
 package com.derandecker.android_sprint1_challenge.ui
 
+import android.content.Intent
 import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -14,9 +15,19 @@ class MainActivity : AppCompatActivity() {
 
     var movieList = mutableListOf<Movie>()
 
+    companion object {
+        const val ADD_MOVIE_REQUEST_CODE = 2
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        button_add_movie.setOnClickListener {
+            var intent = Intent(this, AddEditMovieActivity::class.java)
+            startActivityForResult(intent, ADD_MOVIE_REQUEST_CODE)
+        }
 
        movieList.add(Movie("Back to the Future", true))
         movieList.add(Movie("Crazy crazy", false))
