@@ -16,7 +16,9 @@ class MainActivity : AppCompatActivity() {
     var movieList = mutableListOf<Movie>()
 
     companion object {
-        const val ADD_MOVIE_REQUEST_CODE = 2
+        const val ADD_EDIT_MOVIE_REQUEST_CODE = 2
+
+        const val TEXTVIEW_MOVIE = "textview_movie"
     }
 
 
@@ -26,10 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         button_add_movie.setOnClickListener {
             var intent = Intent(this, AddEditMovieActivity::class.java)
-            startActivityForResult(intent, ADD_MOVIE_REQUEST_CODE)
+            startActivityForResult(intent, ADD_EDIT_MOVIE_REQUEST_CODE)
         }
 
-       movieList.add(Movie("Back to the Future", true))
+       movieList.add(Movie("Back to the Future", false))
         movieList.add(Movie("Crazy crazy", false))
 
     }
@@ -55,6 +57,11 @@ class MainActivity : AppCompatActivity() {
 
         when (movie.watched){
             true -> newMovieView.paintFlags = STRIKE_THRU_TEXT_FLAG
+        }
+
+        newMovieView.setOnClickListener {
+            var intent = Intent(this, AddEditMovieActivity::class.java)
+            intent.putExtra(TEXTVIEW_MOVIE, movieList[index])
         }
 
         return newMovieView
