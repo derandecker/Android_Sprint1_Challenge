@@ -7,13 +7,20 @@
         android:layout_height="match_parent"
         android:layout_margin="15dp"
         tools:context=".ui.AddEditMovieActivity">
+    <TextView
+            android:id="@+id/tv_movie_title"
+            android:text="Movie Title"
+            android:textSize="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     <EditText
             android:id="@+id/et_movie_title"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_movie_title"
+            app:layout_constraintBottom_toTopOf="@+id/checkbox_seen_movie"/>
     <CheckBox
             android:id="@+id/checkbox_seen_movie"
             android:layout_width="wrap_content"
@@ -24,27 +31,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Seen?"
-            app:layout_constraintStart_toEndOf="@id/checkbox_seen_movie"
-            app:layout_constraintTop_toBottomOf="@id/et_movie_title"
+            app:layout_constraintTop_toTopOf="@id/checkbox_seen_movie"
+            app:layout_constraintLeft_toRightOf="@id/checkbox_seen_movie"
+            app:layout_constraintBottom_toBottomOf="@id/checkbox_seen_movie"
             android:gravity="center_vertical"/>
     <LinearLayout
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_gravity="center_horizontal"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_seen_movie"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <Button
                 android:id="@+id/button_delete"
                 android:text="DELETE"
+                android:background="#C9416A"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingHorizontal="60dp"/>
 
         <Button
                 android:id="@+id/button_save"
+                android:background="#1DD124"
                 android:text="SAVE"
+                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingHorizontal="60dp"/>
     </LinearLayout>
 
 
