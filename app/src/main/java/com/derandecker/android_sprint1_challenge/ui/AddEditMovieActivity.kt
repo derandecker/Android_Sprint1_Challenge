@@ -27,6 +27,10 @@ class AddEditMovieActivity : AppCompatActivity() {
             finish()
         }
 
+        button_delete.setOnClickListener {
+            finish()
+        }
+
 
     }
 

@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this, AddEditMovieActivity::class.java)
             startActivityForResult(intent, ADD_EDIT_MOVIE_REQUEST_CODE)
         }
-//
+
 //       movieList.add(Movie("Back to the Future", false))
 //        movieList.add(Movie("Crazy crazy", false))
 
