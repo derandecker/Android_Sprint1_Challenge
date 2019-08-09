@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android_Sprint1_Challenge</string>
+    <string name="title_activity_add_edit_movie">Add or Edit Movie</string>
 </resources>
