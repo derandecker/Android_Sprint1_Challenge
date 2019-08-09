@@ -1,5 +1,6 @@
 package com.derandecker.android_sprint1_challenge.ui
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.support.v7.app.AppCompatActivity
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val ADD_EDIT_MOVIE_REQUEST_CODE = 2
 
-        const val TEXTVIEW_MOVIE = "textview_movie"
+        const val TEXTVIEW_MOVIE_CODE = "textview_movie"
     }
 
 
@@ -30,9 +31,9 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this, AddEditMovieActivity::class.java)
             startActivityForResult(intent, ADD_EDIT_MOVIE_REQUEST_CODE)
         }
-
-       movieList.add(Movie("Back to the Future", false))
-        movieList.add(Movie("Crazy crazy", false))
+//
+//       movieList.add(Movie("Back to the Future", false))
+//        movieList.add(Movie("Crazy crazy", false))
 
     }
 
@@ -62,11 +63,22 @@ class MainActivity : AppCompatActivity() {
 
         newMovieView.setOnClickListener {
             var intent = Intent(this, AddEditMovieActivity::class.java)
-            intent.putExtra(TEXTVIEW_MOVIE, movieList[index])
+            intent.putExtra(TEXTVIEW_MOVIE_CODE, movieList[index])
+
+            movieList.removeAt(index)
+
             startActivityForResult(intent, ADD_EDIT_MOVIE_REQUEST_CODE)
         }
 
         return newMovieView
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == ADD_EDIT_MOVIE_REQUEST_CODE && resultCode == Activity.RESULT_OK){
+            val newMovieResult = data!!.getSerializableExtra(TEXTVIEW_MOVIE_CODE) as Movie
+            movieList.add(newMovieResult)
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }
 

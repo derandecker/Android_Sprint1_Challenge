@@ -3,7 +3,6 @@ package com.derandecker.android_sprint1_challenge.ui
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import com.derandecker.android_sprint1_challenge.R
 import com.derandecker.android_sprint1_challenge.model.Movie
@@ -18,12 +17,12 @@ class AddEditMovieActivity : AppCompatActivity() {
 
         var bundle: Bundle? = intent.extras
         if (bundle != null) {
-            loadMovieInfo(bundle!!.getSerializable(MainActivity.TEXTVIEW_MOVIE) as Movie)
+            loadMovieInfo(bundle!!.getSerializable(MainActivity.TEXTVIEW_MOVIE_CODE) as Movie)
         }
 
         button_save.setOnClickListener {
            var intent = Intent()
-            intent.putExtra(MainActivity.TEXTVIEW_MOVIE, createMovie())
+            intent.putExtra(MainActivity.TEXTVIEW_MOVIE_CODE, createMovie())
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
