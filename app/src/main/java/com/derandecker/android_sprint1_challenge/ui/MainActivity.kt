@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         newMovieView.setOnClickListener {
             var intent = Intent(this, AddEditMovieActivity::class.java)
             intent.putExtra(TEXTVIEW_MOVIE, movieList[index])
+            startActivityForResult(intent, ADD_EDIT_MOVIE_REQUEST_CODE)
         }
 
         return newMovieView
