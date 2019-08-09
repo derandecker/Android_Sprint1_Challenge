@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         var newMovieView = TextView(this)
         newMovieView.id = index
         newMovieView.text = movie.title
+        newMovieView.textSize = 28f
 
         when (movie.watched){
             true -> newMovieView.paintFlags = STRIKE_THRU_TEXT_FLAG
